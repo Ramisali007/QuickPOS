@@ -17,3 +17,4 @@ Tracking feature development and updates.
 - [POS-23] Test Contact Email
 - [POS-24] About Web implementation
 - [POS-25] Authentication Check
+- [POS-26] History feature

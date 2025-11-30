@@ -1,24 +1,30 @@
 # QuickPOS Landing Page
 
-A modern, responsive Point of Sale (POS) system landing page built with PHP and Bootstrap 5.
+**Student Name:** Ramis Ali  
+**Roll Number:** 22f-3703  
+**Project:** Web Engineering Semester Project  
+
+---
+
+A modern, responsive Point of Sale (POS) system landing page built with PHP and Bootstrap 5, featuring a premium "Interstellar" dark aesthetic.
 
 ## 📋 Project Structure
 
 ```
 QuickPOS/
 ├── public/
-│   ├── index.php          # Main landing page
-│   ├── contact.php        # Contact form handler
-│   └── thank-you.html     # Success page
-├── assets/
-│   ├── css/
-│   │   └── style.css      # Custom styles
-│   ├── js/
-│   │   └── script.js      # JavaScript
-│   └── images/            # Project images
+│   ├── assets/
+│   │   ├── css/
+│   │   │   └── style.css      # Premium Dark Theme Styles
+│   │   ├── js/
+│   │   │   └── script.js      # Animations & Logic
+│   │   └── img/               # Images
+│   ├── index.php              # Main Landing Page
+│   ├── contact.php            # Form Handling Logic
+│   ├── thank-you-new.html     # Premium Success Page
+│   └── contact_log.txt        # Submission Logs
 ├── .gitignore
-├── README.md
-└── contact_log.txt        # Contact submissions log
+└── README.md
 ```
 
 ## 🚀 Quick Start
@@ -31,7 +37,7 @@ QuickPOS/
 
 1. **Clone the repository:**
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Ramisali007/QuickPOS.git
 cd QuickPOS
 ```
 
@@ -45,84 +51,45 @@ Navigate to `http://localhost:8000`
 
 ## ✨ Features
 
-- ✅ Responsive Navigation with Mobile Menu
-- ✅ Hero Section with Call-to-Action
-- ✅ Features Showcase (3 key features)
-- ✅ Pricing Table (3 tiers)
-- ✅ Contact Form with PHP Validation
-- ✅ Thank You Page
-- ✅ Professional Footer
-- ✅ Smooth Animations
-- ✅ Mobile-First Design
-- ✅ Bootstrap 5 + Font Awesome Icons
+- **Premium "Interstellar" Aesthetic:** Deep mesh gradients, glassmorphism cards, and neon glow effects.
+- **3D Interactions:** Hero section features a 3D-tilting dashboard preview.
+- **Responsive Navigation:** Glass-effect navbar that adapts on scroll.
+- **Contact Form:** Fully functional PHP form with validation and logging.
+- **Thank You Page:** Animated success page with countdown redirection.
+- **Performance:** Smooth scroll animations using Intersection Observer.
 
 ## 🛠️ Technologies Used
 
-- **Backend:** PHP 8.5
-- **Frontend:** HTML5, CSS3, JavaScript
+- **Backend:** PHP 8.x
+- **Frontend:** HTML5, CSS3 (Custom Glassmorphism), JavaScript (ES6+)
 - **Framework:** Bootstrap 5.3
+- **Fonts:** 'Outfit' (Headings) & 'Plus Jakarta Sans' (Body)
 - **Icons:** Font Awesome 6.4
-- **Version Control:** Git & GitHub
 
-## 📝 Contact Form
+## 📝 Contact Form Workflow
 
-The contact form:
-- Validates required fields (Name, Email, Message)
-- Validates email format
-- Logs submissions to `contact_log.txt`
-- Redirects to thank you page on success
-- Shows error messages on validation failure
+1. User submits form on `index.php`.
+2. Data is POSTed to `contact.php`.
+3. Server validates inputs (Name, Email, Message).
+4. If valid:
+   - Logs data to `public/assets/contact_log.txt`.
+   - Redirects to `thank-you-new.html` with user's name.
+5. If invalid:
+   - Returns errors to `index.php` (stored in session).
 
-## 🔄 Development Workflow
+## 🔄 Development Process
 
-1. Create a feature branch:
-```bash
-git checkout -b feature/POS-XXX-feature-name
-```
-
-2. Make changes and test locally
-
-3. Commit with Jira ticket number:
-```bash
-git commit -m "[POS-XXX] Add feature description"
-```
-
-4. Push to GitHub:
-```bash
-git push origin feature/POS-XXX-feature-name
-```
-
-5. Create a Pull Request on GitHub
-
-6. Request review from Tech Lead
-
-7. Merge to main after approval
+This project followed a rigorous development process using:
+- **Jira:** For Agile project management (Epics, Stories, Tasks).
+- **GitHub:** [https://github.com/Ramisali007/QuickPOS](https://github.com/Ramisali007/QuickPOS)
+- **Slack:** For team communication and status updates.
 
 ## 👥 Team Roles
 
-- **Product Owner:** Defines features & approves deliverables
-- **Project Manager & QA:** Manages Jira, runs sprints, tests features
-- **Tech Lead:** Manages GitHub, code reviews, branching strategy
-- **Lead Developer:** Writes feature code, works with Tech Lead
-
-## 📊 Project Management
-
-- **Jira:** [Create your Jira project link]
-- **GitHub:** [Add your GitHub repo link]
-- **Slack:** [Add your Slack channel]
-
-## 🎯 Epics
-
-- [POS-1] Navigation & Header
-- [POS-2] Hero Section
-- [POS-3] Features Section
-- [POS-4] Pricing Section
-- [POS-5] Contact Form
-- [POS-6] Footer
-
-## 📞 Support
-
-For issues or questions, contact the development team on Slack.
+**Ramis Ali (22f-3703)** - Lead Developer & Product Owner
+- Implemented core PHP logic.
+- Designed the "World's Best" UI/UX.
+- Managed repository and deployment.
 
 ## 📄 License
 

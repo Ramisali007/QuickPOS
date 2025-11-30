@@ -1,6 +1,12 @@
 <?php
 // QuickPOS Landing Page
 // Main entry point for the application
+session_start();
+
+$contactErrors = $_SESSION['contact_errors'] ?? [];
+$contactOld = $_SESSION['contact_old'] ?? [];
+unset($_SESSION['contact_errors'], $_SESSION['contact_old']);
+
 $pageTitle = "QuickPOS - Modern POS System";
 $pageDescription = "The last POS system you'll ever need. Manage stock, sales, and everything with ease.";
 ?>
@@ -21,12 +27,17 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
   <title><?php echo $pageTitle; ?></title>
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Stylesheets -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
 </head>
 <body>
 
@@ -34,7 +45,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 <div class="scroll-progress"></div>
 
 <!-- NAVIGATION -->
-<nav class="navbar navbar-expand-lg bg-white sticky-top">
+<nav class="navbar navbar-expand-lg navbar-premium sticky-top">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#home">
       <i class="fas fa-cash-register me-2"></i>QuickPOS
@@ -55,8 +66,8 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 </nav>
 
 <!-- HERO SECTION -->
-<header id="home" class="hero-section py-5" data-parallax="0.5">
-  <div class="hero-bg">
+<header id="home" class="hero-section py-5">
+  <div class="hero-bg" style="display: none;">
     <div class="gradient-orb gradient-orb-1"></div>
     <div class="gradient-orb gradient-orb-2"></div>
     <div class="gradient-orb gradient-orb-3"></div>
@@ -186,7 +197,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 </section>
 
 <!-- STATS SECTION -->
-<section id="stats" class="stats-section py-5 bg-gradient">
+<section id="stats" class="stats-section py-5">
   <div class="container">
     <div class="row text-center g-4">
       <div class="col-lg-3 col-md-6 animate-on-scroll">
@@ -327,7 +338,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 </section>
 
 <!-- CONTACT SECTION -->
-<section id="contact" class="contact-section py-5 bg-light">
+<section id="contact" class="contact-section py-5">
   <div class="container">
     <div class="row align-items-center g-4">
       <div class="col-lg-6 animate-on-scroll">
@@ -366,21 +377,27 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
       </div>
       <div class="col-lg-6 animate-on-scroll">
         <div class="contact-form-wrapper">
-          <form class="contact-form needs-validation" novalidate>
+          <form class="contact-form" action="contact.php" method="POST">
             <div class="mb-4">
               <label for="name" class="form-label fw-bold">Full Name</label>
-              <input type="text" class="form-control form-input" id="name" name="name" placeholder="John Doe" required>
-              <div class="form-error-message"></div>
+              <input type="text" class="form-control form-input" id="name" name="name" placeholder="John Doe" required value="<?php echo htmlspecialchars($contactOld['name'] ?? '', ENT_QUOTES); ?>">
+              <div class="form-error-message">
+                <?php echo $contactErrors['name'] ?? ''; ?>
+              </div>
             </div>
             <div class="mb-4">
               <label for="email" class="form-label fw-bold">Email Address</label>
-              <input type="email" class="form-control form-input" id="email" name="email" placeholder="john@example.com" required>
-              <div class="form-error-message"></div>
+              <input type="email" class="form-control form-input" id="email" name="email" placeholder="john@example.com" required value="<?php echo htmlspecialchars($contactOld['email'] ?? '', ENT_QUOTES); ?>">
+              <div class="form-error-message">
+                <?php echo $contactErrors['email'] ?? ''; ?>
+              </div>
             </div>
             <div class="mb-4">
               <label for="message" class="form-label fw-bold">Message</label>
-              <textarea class="form-control form-input" id="message" name="message" rows="5" placeholder="Tell us about your business..." required></textarea>
-              <div class="form-error-message"></div>
+              <textarea class="form-control form-input" id="message" name="message" rows="5" placeholder="Tell us about your business..." required><?php echo htmlspecialchars($contactOld['message'] ?? '', ENT_QUOTES); ?></textarea>
+              <div class="form-error-message">
+                <?php echo $contactErrors['message'] ?? ''; ?>
+              </div>
             </div>
             <button type="submit" class="btn btn-primary btn-lg w-100">
               <i class="fas fa-paper-plane me-2"></i>Send Message
@@ -393,7 +410,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 </section>
 
 <!-- FOOTER -->
-<footer class="footer-section py-5 bg-dark text-white">
+<footer class="footer-section py-5">
   <div class="container">
     <div class="row g-4 mb-5 animate-on-scroll">
       <div class="col-lg-3 col-md-6">
@@ -430,7 +447,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
         </div>
       </div>
     </div>
-    <hr class="bg-secondary">
+    <hr>
     <div class="row align-items-center py-3">
       <div class="col-md-6 text-center text-md-start">
         <p class="mb-0 text-muted small">&copy; 2025 QuickPOS. All rights reserved.</p>
@@ -454,7 +471,7 @@ $pageDescription = "The last POS system you'll ever need. Manage stock, sales, a
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
-<script src="../assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 
 </body>
 </html>

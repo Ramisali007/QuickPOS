@@ -14,3 +14,4 @@ Tracking feature development and updates.
 - [POS-20] Create Contact Form UI
 - [POS-21] Implement PHP Form Submission
 - [POS-22] Add Validation
+- [POS-23] Test Contact Email

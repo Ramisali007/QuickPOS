@@ -18,3 +18,4 @@ Tracking feature development and updates.
 - [POS-24] About Web implementation
 - [POS-25] Authentication Check
 - [POS-26] History feature
+- [POS-27] Admin History dashboard

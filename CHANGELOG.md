@@ -16,3 +16,4 @@ Tracking feature development and updates.
 - [POS-22] Add Validation
 - [POS-23] Test Contact Email
 - [POS-24] About Web implementation
+- [POS-25] Authentication Check

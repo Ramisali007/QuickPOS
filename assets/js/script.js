@@ -11,7 +11,27 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeCounterAnimation();
   initializeButtonRipple();
   initializeScrollProgress();
+  initializePricingToggle();
 });
+
+// Pricing Toggle (Monthly/Annual)
+function initializePricingToggle() {
+  const toggle = document.getElementById('pricingToggle');
+  if (!toggle) return;
+
+  toggle.addEventListener('change', function() {
+    const monthlyPrices = document.querySelectorAll('.monthly-price');
+    const annualPrices = document.querySelectorAll('.annual-price');
+
+    if (this.checked) {
+      monthlyPrices.forEach(el => el.style.display = 'none');
+      annualPrices.forEach(el => el.style.display = 'inline');
+    } else {
+      monthlyPrices.forEach(el => el.style.display = 'inline');
+      annualPrices.forEach(el => el.style.display = 'none');
+    }
+  });
+}
 
 // Initialize Animations
 function initializeAnimations() {

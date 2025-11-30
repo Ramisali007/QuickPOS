@@ -15,3 +15,4 @@ Tracking feature development and updates.
 - [POS-21] Implement PHP Form Submission
 - [POS-22] Add Validation
 - [POS-23] Test Contact Email
+- [POS-24] About Web implementation

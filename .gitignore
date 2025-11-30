@@ -1,0 +1,24 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+assets/contact_log.txt
+
+# PHP vendor (if you ever add Composer)
+vendor/
+
+# Environment files
+.env
+
+# Node modules (if you add JS tools later)
+node_modules/
+
+# Cache / temp
+cache/
+tmp/
+
+# IDE files
+.vscode/
+.idea/

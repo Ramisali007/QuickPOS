@@ -10,3 +10,4 @@ Tracking feature development and updates.
 - [POS-15] Make Hero Section Responsive
 - [POS-17] Create Pricing Table HTML
 - [POS-18] Add monthly/yearly toggle
+- [POS-19] Connect pricing data from backend

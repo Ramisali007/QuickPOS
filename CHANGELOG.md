@@ -1,0 +1,1 @@
+- [POS-13] Write Hero Section Content

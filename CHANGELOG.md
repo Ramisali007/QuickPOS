@@ -13,3 +13,4 @@ Tracking feature development and updates.
 - [POS-19] Connect pricing data from backend
 - [POS-20] Create Contact Form UI
 - [POS-21] Implement PHP Form Submission
+- [POS-22] Add Validation

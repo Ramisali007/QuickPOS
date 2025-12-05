@@ -5,6 +5,8 @@ Thumbs.db
 # Logs
 *.log
 assets/contact_log.txt
+public/assets/contact_log.txt
+public/contact_log.json
 
 # PHP vendor (if you ever add Composer)
 vendor/

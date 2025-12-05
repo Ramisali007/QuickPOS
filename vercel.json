@@ -2,11 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.php",
-      "use": "@vercel/php"
-    },
-    {
-      "src": "api/contact.php",
+      "src": "api/*.php",
       "use": "@vercel/php"
     }
   ],

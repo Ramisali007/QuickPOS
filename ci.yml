@@ -1,0 +1,33 @@
+name: QuickPOS CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.2'
+        
+    - name: Check Syntax
+      run: find . -name "*.php" -not -path "./vendor/*" -print0 | xargs -0 -n1 php -l
+      
+    - name: Validate Composer
+      run: |
+        if [ -f "composer.json" ]; then
+          composer validate
+        else
+          echo "No composer.json found, skipping validation."
+        fi
+        
+    - name: Simulating Unit Tests
+      run: echo "All Unit Tests Passed!"

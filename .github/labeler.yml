@@ -1,0 +1,15 @@
+backend:
+  - 'public/**/*.php'
+  - 'src/**/*.php'
+
+frontend:
+  - 'public/**/*.js'
+  - 'public/**/*.css'
+  - 'public/**/*.html'
+
+documentation:
+  - '*.md'
+
+config:
+  - '.github/**'
+

@@ -48,7 +48,8 @@ $safeName = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 $safeEmail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 $safeMessage = htmlspecialchars($message, ENT_QUOTES, 'UTF-8');
 
-// Log submission to file
+// Log submission to file (if writable)
+// On Vercel, file system is read-only, so we'll try to log but continue if it fails
 $logFile = __DIR__ . '/assets/contact_log.txt';
 $logLine = sprintf(
     "%s | %s | %s | %s | %s%s",
@@ -56,10 +57,12 @@ $logLine = sprintf(
     $safeName,
     $safeEmail,
     str_replace(["\r", "\n"], [' ', ' '], $safeMessage),
-    $_SERVER['REMOTE_ADDR'],
+    $_SERVER['REMOTE_ADDR'] ?? 'unknown',
     PHP_EOL
 );
-file_put_contents($logFile, $logLine, FILE_APPEND);
+
+// Try to write log file, but don't fail if it's not writable (e.g., on Vercel)
+@file_put_contents($logFile, $logLine, FILE_APPEND);
 
 header('Location: thank-you-new.html?name=' . urlencode($safeName));
 exit;

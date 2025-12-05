@@ -72,10 +72,59 @@ Navigate to `http://localhost:8000`
 2. Data is POSTed to `contact.php`.
 3. Server validates inputs (Name, Email, Message).
 4. If valid:
-   - Logs data to `public/assets/contact_log.txt`.
+   - Logs data to `public/assets/contact_log.txt` (local) or skips logging (Vercel).
    - Redirects to `thank-you-new.html` with user's name.
 5. If invalid:
    - Returns errors to `index.php` (stored in session).
+
+## 🚀 Deployment on Vercel
+
+This project is configured and ready for deployment on Vercel.
+
+### Prerequisites
+- A Vercel account ([sign up here](https://vercel.com/signup))
+- Your project pushed to a Git repository (GitHub, GitLab, or Bitbucket)
+
+### Deployment Steps
+
+1. **Connect Repository to Vercel:**
+   - Go to [Vercel Dashboard](https://vercel.com/dashboard)
+   - Click "Add New Project"
+   - Import your Git repository
+   - Vercel will automatically detect PHP files
+
+2. **Configure Project Settings:**
+   - **Framework Preset:** Other (or leave as auto-detected)
+   - **Root Directory:** Leave as default (`.`)
+   - **Build Command:** Leave empty (no build needed for PHP)
+   - **Output Directory:** Leave empty
+   - **Install Command:** Leave empty
+
+3. **Deploy:**
+   - Click "Deploy"
+   - Vercel will automatically use the `vercel.json` configuration
+   - Your site will be live at `your-project.vercel.app`
+
+### Important Notes
+
+- **File System:** On Vercel, the file system is read-only. Contact form submissions will not be logged to `contact_log.txt` on Vercel (the code handles this gracefully).
+- **Sessions:** PHP sessions work on Vercel, but session data is stored in memory and may not persist across function invocations.
+- **Static Assets:** All static assets (CSS, JS, images) are automatically served with proper caching headers.
+
+### Manual Deployment (CLI)
+
+Alternatively, you can deploy using Vercel CLI:
+
+```bash
+# Install Vercel CLI
+npm i -g vercel
+
+# Deploy
+vercel
+
+# For production deployment
+vercel --prod
+```
 
 ## 🔄 Development Process
 

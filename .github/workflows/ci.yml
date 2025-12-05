@@ -19,7 +19,7 @@ jobs:
         php-version: '8.2'
         
     - name: Check Syntax
-      run: find . -name "*.php" -print0 | xargs -0 -n1 php -l
+      run: find . -name "*.php" -not -path "./vendor/*" -print0 | xargs -0 -n1 php -l
       
     - name: Validate Composer
       run: |
@@ -31,4 +31,3 @@ jobs:
         
     - name: Simulating Unit Tests
       run: echo "All Unit Tests Passed!"
-

@@ -1,0 +1,30 @@
+# Development files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs (will be recreated if needed)
+*.log
+public/assets/contact_log.txt
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+README.md
+CHANGELOG.md
+
+# Source files (not needed in deployment)
+src/
+assets/
+
+# Dependencies (if any)
+node_modules/
+vendor/
+
+# Environment files
+.env
+.env.local
+

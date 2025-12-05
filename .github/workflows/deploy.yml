@@ -25,7 +25,7 @@ jobs:
         fi
         
     - name: Sync files to server
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.6
       with:
         server: ftp.example.com
         username: ${{ secrets.FTP_USERNAME }}
